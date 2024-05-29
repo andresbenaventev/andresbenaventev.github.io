@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Código para la animación de escritura del texto
     const textDisplay = document.getElementById('textDisplay');
     const textsToAnimate = [
-        "Este es el texto que se mostrará como si se estuviera escribiendo a máquina. (Texto 1)",
-        "Aquí hay otro texto diferente que se escribe de forma animada. (Texto 2)",
-        "Este es el tercer texto que aparece con un efecto de escritura. (Texto 3)"
+        "Hola, bien, ¿y tú?",
+        "Sí, solo necesité ver unos datos de la empresa y quedaron listos",
+        "Ya dejé todos los papeles listos para ir a la reunión"
     ];
     let currentIndex = 0;
     let typingInterval;
