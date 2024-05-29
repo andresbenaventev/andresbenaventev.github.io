@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Código existente para abrir la cámara
     if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
@@ -13,39 +12,64 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("getUserMedia no está soportado en este navegador.");
     }
 
-    // Código para la animación de escritura del texto
-    const textDisplay = document.getElementById('textDisplay');
-    const textsToAnimate = [
-        "Este es el texto que se mostrará como si se estuviera escribiendo a máquina. (Texto 1)",
-        "Aquí hay otro texto diferente que se escribe de forma animada. (Texto 2)",
-        "Este es el tercer texto que aparece con un efecto de escritura. (Texto 3)"
+    var audioElements = [
+        document.getElementById('audioElement1'),
+        document.getElementById('audioElement2'),
+        document.getElementById('audioElement3')
     ];
-    let currentIndex = 0;
-    let typingInterval;
 
-    function typeText(textToAnimate) {
-        currentIndex = 0;
-        textDisplay.textContent = '';
+    var playPauseButtons = [
+        document.getElementById('playPauseButton1'),
+        document.getElementById('playPauseButton2'),
+        document.getElementById('playPauseButton3')
+    ];
 
-        typingInterval = setInterval(function() {
-            if (currentIndex < textToAnimate.length) {
-                textDisplay.textContent += textToAnimate.charAt(currentIndex);
-                currentIndex++;
-            } else {
-                clearInterval(typingInterval);
-            }
-        }, 100); // Ajusta la velocidad de escritura aquí
+    var currentTimeDisplays = [
+        document.getElementById('currentTime1'),
+        document.getElementById('currentTime2'),
+        document.getElementById('currentTime3')
+    ];
+
+    var durationDisplays = [
+        document.getElementById('duration1'),
+        document.getElementById('duration2'),
+        document.getElementById('duration3')
+    ];
+
+    audioElements.forEach((audio, index) => {
+        audio.addEventListener('loadedmetadata', function() {
+            durationDisplays[index].textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', function() {
+            currentTimeDisplays[index].textContent = formatTime(audio.currentTime);
+        });
+
+        // Agregar evento ended para reiniciar el botón cuando termine el audio
+        audio.addEventListener('ended', function() {
+            playPauseButtons[index].textContent = 'Reproducir ' + (index + 1);
+        });
+    });
+
+    function togglePlayPause(index) {
+        var audio = audioElements[index - 1];
+        var button = playPauseButtons[index - 1];
+
+        if (audio.paused) {
+            audio.play();
+            button.textContent = 'Stop';
+        } else {
+            audio.pause();
+            audio.currentTime = 0;  // Reiniciar el audio al pausar
+            button.textContent = 'Reproducir ' + index;
+        }
     }
 
-    document.getElementById('startButton1').addEventListener('click', function() {
-        typeText(textsToAnimate[0]);
-    });
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
 
-    document.getElementById('startButton2').addEventListener('click', function() {
-        typeText(textsToAnimate[1]);
-    });
-
-    document.getElementById('startButton3').addEventListener('click', function() {
-        typeText(textsToAnimate[2]);
-    });
+    window.togglePlayPause = togglePlayPause;
 });
