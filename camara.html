@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalize - Cámara</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.jpg" alt="Signalize Logo">
+            <h1>Signalize</h1>
+        </a>
+    </header>
+    <div class="content">
+        <video id="videoElement" autoplay></video>
+        <div class="audio-controls">
+            <div class="audio-control">
+                <button id="playPauseButton1" onclick="togglePlayPause(1)">Traducir 1</button>
+                <span id="currentTime1">0:00</span> / <span id="duration1">0:00</span>
+            </div>
+            <div class="audio-control">
+                <button id="playPauseButton2" onclick="togglePlayPause(2)">Traducir 2</button>
+                <span id="currentTime2">0:00</span> / <span id="duration2">0:00</span>
+            </div>
+            <div class="audio-control">
+                <button id="playPauseButton3" onclick="togglePlayPause(3)">Traducir 3</button>
+                <span id="currentTime3">0:00</span> / <span id="duration3">0:00</span>
+            </div>
+        </div>
+        <audio id="audioElement1" src="audio1.mp3"></audio>
+        <audio id="audioElement2" src="audio2.mp3"></audio>
+        <audio id="audioElement3" src="audio3.mp3"></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

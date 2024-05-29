@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    height: 130px; /* Agrandar el logo */
+    margin-right: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.content {
+    margin: 20px auto;
+    max-width: 800px; /* Aumentar el ancho máximo */
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005f6b;
+}
+
+button:focus {
+    outline: 3px solid #005f6b;
+}
+
+video {
+    width: 100%;
+    max-width: 600px; /* Aumentar el tamaño del video */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.audio-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+}
+
+.audio-controls button {
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.audio-controls span {
+    font-size: 14px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcripción</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #textDisplay {
+            font-size: 1.2em;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="logo.jpg" alt="Signalize Logo">
+            <h1>Signalize</h1>
+        </a>
+    </header>
+    <div class="content">
+        <h2>Transcripción en Tiempo Real</h2>
+        <video id="videoElement" autoplay></video>
+        <div id="textDisplay"></div>
+        <button id="startButton1">Iniciar Transcripción 1</button>
+        <button id="startButton2">Iniciar Transcripción 2</button>
+        <button id="startButton3">Iniciar Transcripción 3</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
