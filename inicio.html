@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalize - Página Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="inicio.html">
+            <img src="logo.jpg" alt="Signalize Logo">
+            <h1>Signalize</h1>
+        </a>
+    </header>
+    <div class="content">
+        <h2>Bienvenido a Signalize</h2>
+        <p>Haz clic en el botón para activar la traducción.</p>
+        <button onclick="irACamara()">Traducción</button>
+        <p>Haz clic en el botón para activar la transcripción.</p>
+        <button onclick="irATranscripcion()">Transcripción</button>
+    </div>
+
+    <script>
+        function irACamara() {
+            window.location.href = "camara.html";
+        }
+
+        function irATranscripcion() {
+            window.location.href = "transcripcion.html";
+        }
+
+        function volverInicio() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

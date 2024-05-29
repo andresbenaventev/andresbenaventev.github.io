@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signalize - Página Principal</title>
+    <title>Bienvenidos a Signalize</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .welcome-container h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #4CAF50; /* Usar el mismo color que el header */
+        }
+        .welcome-container button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .welcome-container button:hover {
+            background-color: #005f6b;
+        }
+        .welcome-container button:focus {
+            outline: 3px solid #005f6b;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <a href="index.html">
-            <img src="logo.jpg" alt="Signalize Logo">
-            <h1>Signalize</h1>
-        </a>
-    </header>
-    <div class="content">
-        <h2>Bienvenido a Signalize</h2>
-        <p>Haz clic en el botón para activar la traducción.</p>
-        <button onclick="irACamara()">Traducción</button>
-        <p>Haz clic en el botón para activar la transcripción.</p>
-        <button onclick="irATranscripcion()">Transcripción</button>
+    <div class="welcome-container">
+        <h1>Bienvenidos a Signalize</h1>
+        <button onclick="irAPaginaPrincipal()">Ir a la Página Principal</button>
     </div>
 
     <script>
-        function irACamara() {
-            window.location.href = "camara.html";
-        }
-
-        function irATranscripcion() {
-            window.location.href = "transcripcion.html";
-        }
-
-        function volverInicio() {
+        function irAPaginaPrincipal() {
             window.location.href = "index.html";
         }
     </script>
