@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Código para la animación de escritura del texto
     const textDisplay = document.getElementById('textDisplay');
     const textsToAnimate = [
-        "Hola, bien, ¿y tú?",
-        "Sí, solo necesité ver unos datos de la empresa y quedaron listos",
-        "Ya dejé todos los papeles listos para ir a la reunión"
+        "Hola, bien, ¿y tu?",
+        "Si, solo necesite ver unos datos de la empresa y quedaron listos",
+        "Ya deje todos los papeles listos para ir a la reunion"
     ];
     let currentIndex = 0;
     let typingInterval;
