@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signalize - Cámara</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #textDisplay {
+            font-size: 1.2em;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,6 +29,7 @@
     </header>
     <div class="content">
         <video id="videoElement" autoplay></video>
+        </div>
         <div class="audio-controls">
             <div class="audio-control">
                 <button id="playPauseButton1" onclick="togglePlayPause(1)">Traducir 1</button>
