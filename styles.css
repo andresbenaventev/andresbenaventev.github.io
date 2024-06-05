@@ -70,18 +70,20 @@ video {
 }
 
 .audio-controls {
+    position: relative;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espacio entre los botones */
 }
 
-.audio-controls button {
-    padding: 10px 15px;
-    font-size: 14px;
+.audio-controls button:not(#recordButton) {
+    margin-top: 50px; /* Mueve otros botones hacia abajo */
 }
 
-.audio-controls span {
-    font-size: 14px;
+#recordButton {
+    position: relative;
+    font-size: 20px; /* Tamaño más grande */
+    padding: 20px 30px; /* Ajustar el tamaño del botón */
+    z-index: 10; /* Asegurarse de que esté sobre los otros botones */
 }
