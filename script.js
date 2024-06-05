@@ -1,19 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Código existente para abrir la cámara
-    if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
-        .then(function(stream) {
-            var video = document.getElementById('videoElement');
-            video.srcObject = stream;
-        })
-        .catch(function(error) {
-            console.error("Error al acceder a la cámara: ", error);
-        });
-    } else {
-        console.error("getUserMedia no está soportado en este navegador.");
-    }
+    let mediaRecorder;
+    let audioChunks = [];
 
-    // Código para la animación de escritura del texto
+    // Código existente para animación de escritura del texto
     const textDisplay = document.getElementById('textDisplay');
     const textsToAnimate = [
         "Hola, bien, ¿y tu?",
@@ -47,5 +36,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('startButton3').addEventListener('click', function() {
         typeText(textsToAnimate[2]);
+    });
+
+    // Funcionalidad de grabación de audio
+    document.getElementById('recordButton').addEventListener('click', function() {
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder.start();
+
+                mediaRecorder.addEventListener("dataavailable", event => {
+                    audioChunks.push(event.data);
+                });
+
+                mediaRecorder.addEventListener("stop", () => {
+                    const audioBlob = new Blob(audioChunks);
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                });
+
+                setTimeout(() => {
+                    mediaRecorder.stop();
+                }, 5000); // Detener grabación después de 5 segundos
+            })
+            .catch(error => {
+                console.error("Error al acceder al micrófono: ", error);
+            });
+        } else {
+            console.error("getUserMedia no está soportado en este navegador.");
+        }
     });
 });

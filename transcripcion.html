@@ -18,6 +18,13 @@
             height: 100px;
             overflow-y: auto;
         }
+        .audio-controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Espacio entre los botones */
+        }
     </style>
 </head>
 <body>
@@ -29,11 +36,13 @@
     </header>
     <div class="content">
         <h2>Transcripción en Tiempo Real</h2>
-        <video id="videoElement" autoplay></video>
         <div id="textDisplay"></div>
-        <button id="startButton1">Iniciar Transcripción 1</button>
-        <button id="startButton2">Iniciar Transcripción 2</button>
-        <button id="startButton3">Iniciar Transcripción 3</button>
+        <div class="audio-controls">
+            <button id="recordButton">Grabar Audio</button>
+            <button id="startButton1">Iniciar Transcripción 1</button>
+            <button id="startButton2">Iniciar Transcripción 2</button>
+            <button id="startButton3">Iniciar Transcripción 3</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
